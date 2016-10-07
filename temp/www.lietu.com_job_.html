@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>猎兔招聘</title>
+		<meta name="keywords"
+			content="职位搜索 人才搜索 智能搜索 找工作 找人才 求职 招聘 招聘网站  劳务派遣 人才网站 工作 猎头  短信求职 无线求职 移动求职 英语 简历 招聘会 毕业生 大学生 外企招聘 H 职业顾问 短期员工聘用 大学生实习  job career hire employee recruitment headhunting training HR zhaopinwang " />
+		<meta name="description"
+			content="猎兔招聘——提供全国所有招聘信息和人才简历的智能搜索服务，每天更新18万条数据、更快速的查找方式、更高效地获取信息、更全面的信息。智能搜索——根据您的个人资料进行分析和判断 搜索信息更符合您的信息。" />
+
+		<style>
+div.auto_complete {
+	width: 315px;
+	background: #fff;
+}
+
+div.auto_complete ul {
+	border: 1px solid #888;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style-type: none;
+}
+
+div.auto_complete ul li {
+	margin: 0;
+	padding: 3px;
+}
+
+div.auto_complete ul li.selected {
+	background-color: #ffb;
+}
+
+div.auto_complete ul strong.highlight {
+	color: #800;
+	margin: 0;
+	padding: 0;
+}
+</style>
+
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/prototype/prototype.js"></script>
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/scriptaculous/scriptaculous.js"></script>
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/scriptaculous/controls.js"></script>
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/scriptaculous/effects.js"></script>
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/scriptaculous/dragdrop.js"></script>
+		<script language="JavaScript" type="text/javascript"
+			src="./scripts/scriptaculous/util.js"></script>
+
+
+
+		<script type="text/javascript">
+function h(obj,url){obj.style.behavior='url(#default#homepage)';obj.setHomePage(url);}
+
+function trim(str)
+{
+ while(str.charAt(0)==" ") 
+ {
+  str=str.substr(1);
+ }
+ while(str.charAt(str.length-1)==" ") 
+ {
+  str=str.substring(0,str.length-1);
+ }
+ return str; 
+ 
+}
+function checkForm(){
+
+var wd = document.f.query.value;
+	wd = trim(wd);
+	if(wd == "")
+	{
+		alert("请输入职位名、公司名称!")
+		document.f.query.focus();
+		return false;
+	}
+	
+	var wd2 = document.f.location.value;
+	wd2 = trim(wd2);
+	
+	if(wd2 == "")
+	{
+		alert("请输入工作地点!")
+		document.f.location.focus();
+		return false;
+	}
+	
+	
+
+}
+		</script>
+		<link href="style/basic.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+<!--
+.STYLE1 {
+	color: #000099
+}
+-->
+</style>
+	</HEAD>
+	<body link="#0000cc" vlink="#0000cc" alink="#ff6600"
+		onLoad="document.f.query.focus()">
+		<form name="f" action="SearchJob.jsp" method="post"
+			onSubmit="return checkForm();">
+			<div id="main">
+				<div id="logo">
+					<img height="84" alt="猎兔" src="images/logo_index.gif" width="233"/>
+				</div>
+
+				<div id="nav">
+					<ul>
+						<li class="now">
+							职位搜索/找工作
+						</li>
+						<li>
+							<a href="Searchhr.jsp">简历搜索/找人才</a>
+						</li>
+						<li>
+							<a href="intelligent.jsp">量身/智能搜索</a>
+						</li>
+						<li>
+							<a href="member.jsp">会员注册/登陆</a>
+						</li>
+					</ul>
+				</div>
+
+				<div id="box">
+					<div id="cue1">
+						<div id="wd1">
+
+							<input autocomplete="off" type="text" name="query" id="zip"
+								style="width: 315px;" class="wd" />
+							<div class="auto_complete" id="zip_values"></div>
+							<script type="text/javascript">
+	                              new Ajax.Autocompleter('zip', 'zip_values','autoComplete', {})
+							</script>
+
+						</div>
+						<div id="wd2">
+							<input class="wd" style="width: 93px;" name=location />
+						</div>
+						<div id="sb">
+							<input name="submit" style="width: 73px;" type="submit"
+								class="sb" value="搜索" />
+						</div>
+					</div>
+					<div id="cue">
+						<div id="l1">
+							职位名、公司名称：
+						</div>
+						<div id="l2">
+							工作地点：
+						</div>
+					</div>
+				</div>
+				
+				<div id="footer">
+					<p class="communication"
+						style="font-size: 14px; color: #0302Ca; height: 50px">
+						今天更新
+						<span class="data">477,729</span>个职位信息
+						<a href="newestwork.jsp" target="_blank">最新招聘信息</a>
+					</p>
+					<div id="footer_bootom">
+						<div id="footer_bootom-left">
+							<img src="images/home3_14.gif" alt="猎兔" />
+						</div>
+						<div id="footer_bootom_middle">
+							推荐使用 [ 量身/智能搜索] ：针对你的条件进行分析和判断,搜索出更符合你的信息
+						</div>
+						<div id="footer_bootom-right">
+							<img src="images/home6_18.gif" alt="猎兔" />
+						</div>
+					</div>
+					<p>
+						<a href="about/index.html">关于猎兔</a> |
+						<a href="about/customer.html"> 客服中心</a> |
+						<a href="about/zhinan.html"> 搜索指南</a> |
+						<a href="about/support.html">用户反馈</a> |
+						<a href="about/announce.html"> 法律声明</a> |
+						<a href="about/contactus.html">联系我们</a>
+					</p>
+					<p id="about">
+						&copy;2008 lietu
+						<a href="about/duty.html">使用猎兔前必读</a>
+						<img src="images/gs.gif" alt="猎兔" />
+						<a onclick="h(this,'http://www.yipin.cc')" href="#">把猎兔设为首页</a>
+					</p>
+				</div>
+			</div>
+		</form>
+	</body>
+</HTML>

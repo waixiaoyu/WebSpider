@@ -8,7 +8,6 @@ import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
 import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.filters.OrFilter;
-import org.htmlparser.tags.ImageTag;
 import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
@@ -61,6 +60,11 @@ public class HtmlParserTool {
             parser.setEncoding("gb2312");
             //过滤 <frame> 标签的 filter，用来提取 frame 标签里的 src 属性所、表示的链接
             NodeFilter frameFilter = new NodeFilter() {
+                /**
+                 * 
+                 */
+                private static final long serialVersionUID = 1L;
+
                 public boolean accept(Node node) {
                     if (node.getText().startsWith("frame src=")) {
                         return true;
