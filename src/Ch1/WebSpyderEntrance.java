@@ -17,7 +17,7 @@ public class WebSpyderEntrance {
      * checking the set first. If it exists, just skip it. Otherwise, add this
      * url to BFS list, and add it to Visited set.
      */
-    private Set<String> setVisited = new HashSet<>();
+    private Set<VisitedURL> setVisited = new HashSet<>();
     private Queue<String> queueBFS = new LinkedList<>();
 
     /**
@@ -40,7 +40,7 @@ public class WebSpyderEntrance {
         if (lf.accept(url)) {
             if (setVisited.contains(url)) {
             } else {
-                setVisited.add(url);
+                setVisited.add(new VisitedURL(url));
                 queueBFS.add(url);
             }
         }
@@ -77,7 +77,6 @@ public class WebSpyderEntrance {
             byte[] bytes = rp.downloadPage(strUrl);
             if (bytes != null) {
                 SaveFile.saveToLocal(strUrl, bytes);
-                setVisited.add(strUrl);
                 Set<String> links = HtmlParserTool.extracLinks(strUrl, filter);
                 for (String string : links) {
                     isVisitedAndAddUrl(string);

@@ -36,4 +36,8 @@ public class MD5Tools {
             return null;
         }
     }
+
+    public final static String MD5(String url) {
+        return MD5(url.getBytes());
+    }
 }
